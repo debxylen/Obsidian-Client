@@ -1,0 +1,293 @@
+@import url('https://fonts.googleapis.com/css2?family=Rethink+Sans:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 233 40% 5%;
+    --foreground: 220 13% 78%;
+
+    --card: 233 25% 8%;
+    --card-foreground: 220 13% 78%;
+
+    --popover: 233 25% 8%;
+    --popover-foreground: 220 13% 78%;
+
+    --primary: 227 58% 65%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 233 18% 14%;
+    --secondary-foreground: 220 13% 72%;
+
+    --muted: 233 12% 18%;
+    --muted-foreground: 220 8% 42%;
+
+    --accent: 233 20% 16%;
+    --accent-foreground: 220 13% 78%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 233 15% 13%;
+    --input: 233 18% 14%;
+    --ring: 227 58% 65%;
+
+    --radius: 8px;
+
+    --chat-ai-name: 227 58% 68%;
+    --chat-ai-avatar: 227 40% 20%;
+    --chat-user-name: 139 47% 55%;
+    --chat-user-avatar: 139 30% 18%;
+    --chat-input-bg: 0 0% 0% / 0.35;
+
+    --sidebar-background: 233 30% 6%;
+    --sidebar-foreground: 220 8% 55%;
+    --sidebar-primary: 227 58% 65%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 233 20% 14%;
+    --sidebar-accent-foreground: 220 13% 78%;
+    --sidebar-border: 233 15% 13%;
+    --sidebar-ring: 227 58% 65%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html,
+  body,
+  #root {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  body {
+    font-family: 'Rethink Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background: linear-gradient(180deg, #161a3e 0%, #192254 50%, #050510 100%);
+    background-attachment: fixed;
+    color: hsl(var(--foreground));
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body.font-rethink-sans {
+    font-family: 'Rethink Sans', sans-serif;
+  }
+}
+
+@layer components {
+
+  .glass-panel {
+    background: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+
+  .glass-sidebar {
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+  }
+
+  .glass-input {
+    background: rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  .glass-border {
+    border-color: rgba(255, 255, 255, 0.06);
+  }
+
+  .glass-separator {
+    background-color: rgba(255, 255, 255, 0.06);
+  }
+
+  .glass-search {
+    background: rgba(255, 255, 255, 0.04);
+  }
+
+  .glass-header {
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+
+  .sidebar-tool {
+    transition: background-color 200ms ease;
+    border-radius: 6px;
+  }
+
+  .sidebar-tool:hover {
+    background-color: rgba(255, 255, 255, 0.06);
+  }
+
+  .sidebar-item {
+    transition: background-color 200ms ease;
+    border-radius: 6px;
+  }
+
+  .sidebar-item:hover {
+    background-color: rgba(255, 255, 255, 0.04);
+  }
+
+  .sidebar-item-active {
+    background-color: rgba(255, 255, 255, 0.08);
+  }
+
+  .sidebar-item-active:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .message-hover {
+    transition: background-color 150ms ease;
+  }
+
+  .message-hover:hover {
+    background-color: rgba(255, 255, 255, 0.02);
+  }
+
+  .header-icon {
+    transition: color 200ms ease;
+  }
+}
+
+@layer utilities {
+  .scrollbar-hide {
+    overflow: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.08) transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 3px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.15);
+  }
+
+  .markdown-content {
+    --tw-prose-body: hsl(var(--foreground));
+    --tw-prose-headings: hsl(var(--foreground));
+    --tw-prose-links: hsl(var(--chat-ai-name));
+    --tw-prose-bold: hsl(var(--foreground));
+    --tw-prose-counters: hsl(var(--muted-foreground));
+    --tw-prose-bullets: hsl(var(--muted-foreground));
+    --tw-prose-hr: rgba(255, 255, 255, 0.1);
+    --tw-prose-quotes: hsl(var(--muted-foreground));
+    --tw-prose-quote-borders: hsl(var(--chat-ai-name));
+    --tw-prose-captions: hsl(var(--muted-foreground));
+    --tw-prose-code: hsl(var(--foreground));
+    --tw-prose-pre-code: hsl(var(--foreground));
+    --tw-prose-pre-bg: rgba(0, 0, 0, 0.3);
+    --tw-prose-th-borders: rgba(255, 255, 255, 0.1);
+    --tw-prose-td-borders: rgba(255, 255, 255, 0.05);
+  }
+
+  .markdown-content p {
+    @apply mt-0 mb-1.5 last:mb-0;
+  }
+
+  .markdown-content :not(pre)>code {
+    @apply px-1.5 py-0.5 rounded bg-white/10 font-mono text-[0.9em] before:content-none after:content-none;
+  }
+
+  .markdown-content pre {
+    @apply my-4 rounded-xl border border-white/5 bg-black/35 backdrop-blur-md overflow-x-auto scrollbar-thin;
+  }
+
+  .markdown-content ul,
+  .markdown-content ol {
+    @apply my-2 pl-5 list-disc;
+  }
+
+  .markdown-content ol {
+    @apply list-decimal;
+  }
+
+  .markdown-content li {
+    @apply my-1 leading-relaxed;
+  }
+
+  .markdown-content blockquote {
+    @apply border-l-2 border-chat-ai-name/40 pl-4 italic opacity-80 my-3;
+  }
+
+  .markdown-content h1,
+  .markdown-content h2,
+  .markdown-content h3 {
+    @apply font-bold mt-6 mb-3 text-foreground tracking-tight;
+  }
+
+  .markdown-content h1 {
+    @apply text-2xl border-b border-white/10 pb-2 mb-4;
+  }
+
+  .markdown-content h2 {
+    @apply text-xl;
+  }
+
+  .markdown-content h3 {
+    @apply text-lg;
+  }
+
+  .prose-ai {
+    --tw-prose-body: hsl(var(--foreground));
+  }
+
+  @keyframes typing-dot {
+
+    0%,
+    20% {
+      transform: translateY(0);
+      opacity: 0.35;
+    }
+
+    50% {
+      transform: translateY(-3px);
+      opacity: 1;
+    }
+
+    80%,
+    100% {
+      transform: translateY(0);
+      opacity: 0.35;
+    }
+  }
+
+  .typing-dot {
+    animation: typing-dot 1s infinite ease-in-out;
+  }
+
+  .typing-dot:nth-child(2) {
+    animation-delay: 0.15s;
+  }
+
+  .typing-dot:nth-child(3) {
+    animation-delay: 0.3s;
+  }
+}
